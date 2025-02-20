@@ -3,9 +3,10 @@
   "type": "module",
   "scripts": {
     "scripts:release-post": "cross-env NODE_NO_WARNINGS=1 node scripts/release-post/index.mjs",
-    "dev": "cross-env NODE_NO_WARNINGS=1 next dev",
-    "serve": "npm run dev",
-    "build": "cross-env NODE_NO_WARNINGS=1 next build --turbopack",
+    "dev": "npm run build-blog-data:watch & sleep 1 && cross-env NODE_NO_WARNINGS=1 next dev",
+    "serve": "npm run build-blog-data:watch & sleep 1 && npm run dev",
+    "prebuild": "npm run build-blog-data",
+    "build": "cross-env NODE_NO_WARNINGS=1 next build",
     "start": "cross-env NODE_NO_WARNINGS=1 next start",
     "deploy": "cross-env NEXT_PUBLIC_STATIC_EXPORT=true NODE_NO_WARNINGS=1 next build",
     "check-types": "tsc --noEmit",
@@ -18,7 +19,12 @@
     "sync-orama": "node ./scripts/orama-search/sync-orama-cloud.mjs",
     "test:unit": "cross-env NODE_NO_WARNINGS=1 node --experimental-test-coverage --test-coverage-exclude=**/*.test.* --experimental-test-module-mocks --enable-source-maps --import=global-jsdom/register --import=tsx --import=tests/setup.jsx --test **/*.test.*",
     "test:unit:watch": "cross-env NODE_OPTIONS=\"--watch\" npm run test:unit",
-    "test": "turbo test:unit"
+    "test": "turbo test:unit",
+    "build-blog-data": "node ./scripts/blog-data/generate.mjs",
+    "build-blog-data:watch": "node --watch --watch-path=pages/en ./scripts/blog-data/generate.mjs",
+    "cloudflare:build:worker": "npx @opennextjs/cloudflare build",
+    "cloudflare:preview": "npm run cloudflare:build:worker && npx wrangler dev",
+    "cloudflare:deploy": "npm run cloudflare:build:worker && npx wrangler deploy"
   },
   "dependencies": {
     "@heroicons/react": "~2.2.0",
@@ -70,7 +76,7 @@
     "@types/semver": "~7.7.0",
     "eslint-config-next": "15.2.4",
     "eslint-import-resolver-typescript": "~4.3.1",
-    "eslint-plugin-mdx": "~3.3.1",
+    "eslint-plugin-mdx": "~3.4.0",
     "eslint-plugin-react": "~7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
     "global-jsdom": "^26.0.0",
@@ -85,6 +91,9 @@
     "tsx": "^4.19.3",
     "typescript": "~5.8.2",
     "typescript-eslint": "~8.29.0",
-    "user-agent-data-types": "0.4.2"
+    "user-agent-data-types": "0.4.2",
+    "@opennextjs/cloudflare": "^1.0.0-beta.3",
+    "wrangler": "^4.13.0",
+    "@flarelabs-net/wrangler-build-time-fs-assets-polyfilling": "^0.0.0"
   }
 }
