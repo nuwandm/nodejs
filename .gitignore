@@ -35,7 +35,7 @@ dist/
 # Ignore the blog-data json that we generate during dev and build
 apps/site/public/blog-data.json
 
-# Ignore worker artifacts
+# Cloudflare Build Output
 apps/site/.open-next
 apps/site/.wrangler
 
