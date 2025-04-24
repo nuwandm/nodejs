@@ -4,7 +4,7 @@ import { BLOG_POSTS_PER_PAGE } from '@/next.constants.mjs';
 import { blogData } from '@/next.json.mjs';
 import type { BlogCategory, BlogPostsRSC } from '@/types';
 
-const categories = blogData.categories;
+const { categories } = blogData;
 const posts = blogData.posts.map(post => ({
   ...post,
   date: new Date(post.date),
