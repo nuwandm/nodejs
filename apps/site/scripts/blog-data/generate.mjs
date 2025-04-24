@@ -1,6 +1,4 @@
 import { writeFileSync } from 'node:fs';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import generateBlogData from '../../next-data/generators/blogData.mjs';
 
