@@ -4,13 +4,11 @@ import { BLOG_POSTS_PER_PAGE } from '@/next.constants.mjs';
 import { blogData } from '@/next.json.mjs';
 import type { BlogCategory, BlogPostsRSC } from '@/types';
 
-const { categories, posts } = {
-  ...blogData,
-  posts: blogData.posts.map(post => ({
-    ...post,
-    date: new Date(post.date),
-  })),
-};
+const categories = blogData.categories;
+const posts = blogData.posts.map(post => ({
+  ...post,
+  date: new Date(post.date),
+}));
 
 export const provideBlogCategories = cache(() => categories);
 
