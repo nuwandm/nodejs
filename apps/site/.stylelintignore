@@ -13,3 +13,7 @@ lcov.info
 
 # Old Styles
 styles/old
+
+# Cloudflare files
+.open-next
+.wrangler
