@@ -173,7 +173,7 @@ Such migration is still in its experimental phase and is being gradually rolled 
 
 ### Scripts
 
-For the time being preview and deployment of the website targeting the Cloudflare network
+For the time being, preview and deployment of the website targeting the Cloudflare network
 is implemented via the following two scripts:
 
 - `npx turbo cloudflare:preview` builds the website using the OpenNext Cloudflare adapter and runs the website locally in a server simulating the Cloudflare hosting (using the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/))
