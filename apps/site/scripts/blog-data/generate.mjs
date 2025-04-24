@@ -6,9 +6,8 @@ import generateBlogData from '../../next-data/generators/blogData.mjs';
 
 const blogData = await generateBlogData();
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 writeFileSync(
-  `${__dirname}/../../public/blog-data.json`,
+  new URL(`../../public/blog-data.json`, import.meta.url),
   JSON.stringify(blogData),
   'utf8'
 );
