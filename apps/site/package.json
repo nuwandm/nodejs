@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "scripts:release-post": "cross-env NODE_NO_WARNINGS=1 node scripts/release-post/index.mjs",
-    "dev": "npm run build-blog-data:watch & sleep 1 && cross-env NODE_NO_WARNINGS=1 next dev",
+    "predev": "npm run build-blog-data",
+    "dev": "npm run build-blog-data:watch & cross-env NODE_NO_WARNINGS=1 next dev",
     "serve": "npm run dev",
     "prebuild": "npm run build-blog-data",
     "build": "cross-env NODE_NO_WARNINGS=1 next build",
