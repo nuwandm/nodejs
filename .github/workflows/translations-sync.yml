@@ -107,7 +107,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run `lint:md --fix`
         # This runs a specific version of ESLint with only the Translation Pages Globbing

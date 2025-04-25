@@ -618,7 +618,7 @@ It is important to mention that there are some rules on our Vercel Deployments s
 
 - Branches starting with `dependabot` (Dependabot Automated PRs) or `gh` (GitHub Merge Queues) are not deployed to Vercel.
 - Vercel Deployments are triggered for all other branches during `push` activities.
-- We have a custom install script that executes `pnpm install --prod` (the same way we do on our CI Pipelines)
+- We have a custom install script that executes `pnpm install --prod --frozen-lockfile` (the same way we do on our CI Pipelines)
   - Hence if Builds fail unexpectedly, make sure that your dependency that is being used during build-time is on `dependencies` and not `devDependencies`. Checkout out [DEPENDENCY_PINNING.md](./DEPENDENCY_PINNING.md) for more information.
 - Our sponsorship with Vercel is maintained by the OpenJS Foundation
 

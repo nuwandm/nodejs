@@ -81,7 +81,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run quality checks with `turbo`
         # We run the ESLint and Prettier commands on all Workflow triggers of the `Lint` job, besides if
@@ -138,7 +138,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run Unit Tests
         # We want to run Unit Tests in every circumstance, including Crowdin PRs and Dependabot PRs to ensure

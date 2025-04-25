@@ -91,7 +91,7 @@ for getting things done and landing your contribution.
 6. Run the following to install the dependencies and start a local preview of your work.
 
    ```bash
-   pnpm install # installs this project's dependencies
+   pnpm install --frozen-lockfile # installs this project's dependencies
    pnpm dev # starts a development environment
    ```
 

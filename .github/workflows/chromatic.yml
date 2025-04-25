@@ -75,7 +75,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Start Visual Regression Tests (Chromatic)
         # This assigns the Environment Deployment for Storybook
