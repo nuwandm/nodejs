@@ -22,7 +22,7 @@
     "test:unit:watch": "cross-env NODE_OPTIONS=\"--watch\" npm run test:unit",
     "test": "turbo test:unit",
     "build-blog-data": "node ./scripts/blog-data/generate.mjs",
-    "build-blog-data:watch": "node --watch --watch-path=pages/en ./scripts/blog-data/generate.mjs",
+    "build-blog-data:watch": "node --watch --watch-path=pages/en/blog ./scripts/blog-data/generate.mjs",
     "cloudflare:build:worker": "opennextjs-cloudflare build",
     "cloudflare:preview": "npm run cloudflare:build:worker && npx wrangler dev",
     "cloudflare:deploy": "npm run cloudflare:build:worker && npx wrangler deploy"
