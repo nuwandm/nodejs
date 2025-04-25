@@ -98,7 +98,6 @@
     "@flarelabs-net/wrangler-build-time-fs-assets-polyfilling": "^0.0.0"
   },
   "optionalDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "~4.1.4",
-    "lightningcss-linux-x64-gnu": "~1.29.3"
+    "@tailwindcss/oxide-linux-x64-gnu": "~4.1.4"
   }
 }
